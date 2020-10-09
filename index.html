@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Page Title</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <script src='mvvm.js'></script>
+</head>
+
+<body>
+  <div id="app">
+    <input type="text" v-model="school.name">
+    <div>{{school.name}}</div>
+    <div>{{school.age}}</div>
+    <div>{{getNewName}}</div>
+    <div v-html="msg"></div>
+    <button v-on:click="change">更新操作</button>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+    </ul>
+  </div>
+  <script>
+    let vm = new Vue({
+      el: '#app',
+      data: {
+        school: {
+          name: 'lgy',
+          age: 18,
+        },
+        msg: "<p>欢迎<p>"
+      },
+      methods: {
+        change() {
+          this.school.name = 'qin jia mei';
+        }
+      },
+      computed: {
+        getNewName() {
+          return this.school.name + '架构'
+        }
+      },
+    })
+  </script>
+</body>
+
+</html>
